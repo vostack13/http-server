@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var logger_1 = require("./modules/logger");
+var server_1 = require("./modules/server");
+var router_1 = require("./modules/router");
+var routes_1 = require("./routes");
+var logger = new logger_1.Logger();
+var router = new router_1.Router({ routes: routes_1.routes, logger: logger });
+var server = new server_1.Server({ router: router, logger: logger });
+server.start();
